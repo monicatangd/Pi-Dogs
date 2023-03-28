@@ -4,7 +4,7 @@ const {API_KEY} = process.env;
 
 const getDogsApi = async()=>{
     try{
-    const getDogs = await axios.get("https://api.thedogapi.com/v1/breeds");
+    const getDogs = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
 
     const infoDogs= await getDogs.data.map(element=>{
         return{

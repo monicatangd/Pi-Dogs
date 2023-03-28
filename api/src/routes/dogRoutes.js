@@ -7,15 +7,16 @@ const router = Router();
 router.get("/", async(req, res)=>{
     const {name}= req.query;
     try{
-        const allDogs = await getAll();
+        
+        const allDogs = await getAll(); //obtengo todas las razas de perros
 
-        if(name){
+        if(name){ // si name trae algun elemento se filtra por nombre de raza con allDogs, no importa mayusculas o minusculas
             const dogsFilter= await allDogs.filter(element => element.name.toLowerCase().includes(name.toLowerCase()))
             dogsFilter.length?
             res.status(200).send(dogsFilter):
             res.status(404).send("No existe esta raza")
         }else{
-            res.status(200).send(allDogs)
+            res.status(200).send(allDogs)// si no hay name se envia todas las raza obtenidas
         }
     }catch(error){
         res.status(404).send(error.message)
@@ -35,5 +36,30 @@ router.get("/:id", async (req, res)=> {
     }catch(error){
         res.status(404).send(error.message)
     }
+});
+
+router.post("/", async (req, res)=>{
+    const { image, name, height, weight, life_span, createdInDb, temperament} = req.body;
+    try{
+        const newDog= await Dog.create({
+            image,
+            name,
+            height,
+            weight,
+            life_span,
+            createdInDb
+        });
+        const createTemperament= await Temperament.findAll({
+            where:{
+                name: temperament
+            }
+        })
+        newDog.addTemperament(createTemperament);
+        res.status(200).send("Raza de perro creada con exito");
+    }catch(error){
+        res.status(404).send(error.message);
+    }
 })
+
+
 module.exports = router;
