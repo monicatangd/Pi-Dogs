@@ -1,0 +1,38 @@
+
+.landingPage img{
+  width: 80%;
+  border-end-end-radius: 50px;
+  border-end-start-radius: 50px;
+}
+
+
+.title img{
+  width: 250px;
+  height: 200px;
+ 
+}
+.title button{
+  background-color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border: 2px solid #ff7c39;
+  border-radius: 10px;
+  width: 170px;
+  cursor: pointer;
+  font-size: 20px;
+  color:#ff7c39;
+}
+.title button:hover{
+  background-color: #ffa460;
+}
+.paragraph p{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color:#555252;
+  
+}
+.paragraph{
+  
+  border-radius: 10px;
+  height: 150px;
+  
+}
+

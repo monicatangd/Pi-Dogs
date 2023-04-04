@@ -40,6 +40,8 @@ router.get("/:id", async (req, res)=> {
 
 router.post("/", async (req, res)=>{
     const { image, name, height, weight, life_span, createdInDb, temperament} = req.body;
+    console.log(req.body);
+    
     try{
         const newDog= await Dog.create({
             image,
@@ -49,9 +51,10 @@ router.post("/", async (req, res)=>{
             life_span,
             createdInDb
         });
+       
         const createTemperament= await Temperament.findAll({
             where:{
-                name: temperament
+                id: temperament
             }
         })
         newDog.addTemperament(createTemperament);

@@ -20,17 +20,18 @@ router.get("/", async (req, res)=>{
                 arr.push(el)   // cada item de los arreglos se mete en la variable arr
             })
         }
-    })
+    });
    
-    const filterArr= arr.filter((item, index)=>{ //se filtra la variable arr para que no hayan items repetidos
-      return arr.indexOf(item) === index;
-    })
+    //const filterArr= arr.filter((item, index)=>{ //se filtra la variable arr para que no hayan items repetidos
+      //return arr.indexOf(item) === index;
+   // });
     
-    filterArr.forEach(element=>{ //se agrega cada item como nombre en la base de datos
+    
+    arr.forEach(element=>{ //se agrega cada item como nombre en la base de datos
         Temperament.findOrCreate({
             where:{ name: element}
         })
-    })
+    });
     const allTemperaments = await Temperament.findAll(); //se obtiene todos los temperamentos de la base de datos
     res.send(allTemperaments);
 }catch(error){

@@ -1,0 +1,21 @@
+.pagination{
+    list-style: none;
+    text-align: center;
+}
+.number{
+    color: brown;
+    display: inline-block;
+    margin-right: 2px;
+}
+.number a{
+    display: block;
+   color: #ff7c39;
+   padding: 10px 10px;
+   background-color: rgb(27, 24, 24);
+   text-decoration: none;
+   cursor: pointer;
+   border-radius: 3px;
+}
+.number a:hover{
+    background-color: rgb(59, 59, 59);
+}
