@@ -18,7 +18,7 @@ export function FilterTemperament(){
         <div>
             <select onChange={e=>handlerFilter(e)}>
                 <option value="All">All</option>
-                {allTemperaments?.map((temperament, idx)=>
+                {allTemperaments.map((temperament, idx) =>
                 <option key={idx} value={temperament.name}>{temperament.name}</option>)}
             </select>
         </div>

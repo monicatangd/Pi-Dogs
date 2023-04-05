@@ -1,7 +1,8 @@
 const initialState={
     dogs:[],
-    allDogs:[],
+    allDogsFilter:[],
     temperament: [],
+    dogsAll: [],
 }
 
 function rootReducer(state= initialState, action){
@@ -10,7 +11,7 @@ function rootReducer(state= initialState, action){
             return{
                 ...state,
                 dogs: action.payload,
-                allDogs: action.payload,
+                dogsAll: action.payload,
             }
         case "GET_TEMPERAMENTS":
             return{
@@ -18,7 +19,7 @@ function rootReducer(state= initialState, action){
                 temperament: action.payload,
             }
         case "FILTER_BY_TEMPERAMENTS":
-            const allDogs= state.allDogs
+            const allDogs= state.allDogsFilter;
             const filter= action.payload === "All" ? allDogs : allDogs.filter(element => element.temperament.includes(action.payload))
             return{
                 ...state,
