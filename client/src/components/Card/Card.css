@@ -1,11 +1,12 @@
 .card{
     background-color: rgb(27, 24, 24);
-    display: inline-block;
+    display: inline-table;
     margin: 20px;
     border-radius: 10px;
     width:300px;
     height:400px;
 }
+
 .card h3{
     color:#ff7c39;
 }
@@ -13,9 +14,7 @@
     color: #ffa460;
 }
 .card:hover{
-    background-color: gray;
-    width:310px;
-    height:405px;
+    background-color: rgb(59, 59, 59);
  
 }
 .card img{

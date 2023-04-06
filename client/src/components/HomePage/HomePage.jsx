@@ -15,6 +15,7 @@ export default function HomePage(){
     
     const dispatch = useDispatch();
     const allDogs=useSelector ((state=> state.dogs))
+    const [order, setOrder] =useState(' ');
     const [currentPage, setCurrentPage] = useState(1);
     const [dogsPerPage, setDogsPerPage] = useState(8);
     const indexOfLastDog = currentPage * dogsPerPage;
@@ -48,7 +49,7 @@ export default function HomePage(){
             <div>
                 <FilterTemperament />
                 <FilterOrigen/>
-                <OrderBreed/>
+                <OrderBreed setCurrentPage={setCurrentPage} setOrder={setOrder} dispatch={dispatch}/>
                 <OrderWeight/>
                 <Paginated
                     dogsPerPage={dogsPerPage}

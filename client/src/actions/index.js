@@ -27,3 +27,10 @@ export function filterTemperaments(payload){
     }
 }
 
+export function orderByName(name){
+    return{
+        type: "ORDER_BY_NAME",
+        name
+    }
+}
+
