@@ -39,7 +39,7 @@ router.get("/:id", async (req, res)=> {
 });
 
 router.post("/", async (req, res)=>{
-    const { image, name, height, weight, life_span, createdInDb, temperament} = req.body;
+    const { image, name, height, weight_min, weight_max, life_span, createdInDb, temperament} = req.body;
     console.log(req.body);
     
     try{
@@ -47,14 +47,15 @@ router.post("/", async (req, res)=>{
             image,
             name,
             height,
-            weight,
+            weight_min,
+            weight_max,
             life_span,
-            createdInDb
+            createdInDb,
         });
        
         const createTemperament= await Temperament.findAll({
             where:{
-                id: temperament
+                name: temperament
             }
         })
         newDog.addTemperament(createTemperament);

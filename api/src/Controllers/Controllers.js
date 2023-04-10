@@ -12,7 +12,8 @@ const getDogsApi = async()=>{
             image: element.image.url,
             name: element.name,
             height: element.height.metric,
-            weight: element.weight.metric,
+            weight_min: element.weight.metric.split(" - ")[0],
+            weight_max: element.weight.metric.split(" - ")[1],
             life_span: element.life_span,
             temperament: element.temperament,
         }
@@ -24,11 +25,14 @@ const getDogsApi = async()=>{
 }
 }
 
-const getDogsDb = async ()=>{
+const getDogsDb = async () => {
     return await Dog.findAll({
         include:{
             model: Temperament,
             attributes: ["name"],
+            through:{
+                attributes: [],
+            }
         }
     });
 }

@@ -1,0 +1,36 @@
+.detail{
+    background-color: rgb(27, 24, 24);
+    width: 500px;
+    height: 500px;
+    margin-top: 60px;
+    border-radius: 10px;
+    display: inline-block;
+}
+.detail h1{
+    color:#ff7c39;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.detail p{
+    color: #ffa460;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+.detail button{
+    background-color:rgb(27, 24, 24) ;
+    cursor: pointer;
+    border: 1px solid #ff7c39;
+    color:#ff7c39;
+    border-radius: 5px;
+    padding: 6px;
+    margin-top: 6px;
+}
+
+.detail button:hover{
+    background-color: rgb(59, 59, 59);
+}
+.detail img{
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+}

@@ -1,0 +1,70 @@
+.cont{
+    background-color: rgb(27, 24, 24);
+    width: 500px;
+    height: 500px;
+    margin-top: 60px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.cont label{
+    color:#ff7c39;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.cont h1{
+    color:#ff7c39;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.cont button{
+    background-color:rgb(27, 24, 24) ;
+    cursor: pointer;
+    border: 1px solid #ff7c39;
+    color:#ff7c39;
+    border-radius: 5px;
+    padding: 6px;
+}
+
+.cont button:hover{
+    background-color: rgb(59, 59, 59);
+}
+.input{
+    border: 1px solid #ccc;
+    background-color: rgb(27, 24, 24);
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 15px;
+    padding: 5px;
+    margin-bottom: 16px;
+    color:#ccc;
+}
+.input:focus{
+    border-color: #ff7c39;
+}
+.cont select{
+    background-color: rgb(27, 24, 24);
+    color: #ccc;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    padding: 5px;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+.cont select:focus{
+    border-color: #ffa460;
+}
+.weight{
+    border: 1px solid #ccc;
+    background-color: rgb(27, 24, 24);
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 15px;
+    padding: 5px;
+    margin-bottom: 16px;
+    color:#ccc;
+    width: 85px;
+    margin-left: 3px;
+}
+.cont ul{
+    color: #ccc;
+}

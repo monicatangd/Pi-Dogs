@@ -21,10 +21,6 @@ router.get("/", async (req, res)=>{
             })
         }
     });
-   
-    //const filterArr= arr.filter((item, index)=>{ //se filtra la variable arr para que no hayan items repetidos
-      //return arr.indexOf(item) === index;
-   // });
     
     
     arr.forEach(element=>{ //se agrega cada item como nombre en la base de datos

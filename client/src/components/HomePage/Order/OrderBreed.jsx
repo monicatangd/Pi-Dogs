@@ -1,5 +1,5 @@
 import React from "react";
-import {orderByName} from "../../actions";
+import {orderByName} from "../../../actions";
 
 export function OrderBreed({setCurrentPage, setOrder, dispatch}){
     
@@ -13,10 +13,11 @@ export function OrderBreed({setCurrentPage, setOrder, dispatch}){
 
     return(
         <div>
-            <select onChange={handleOrderByName}>
+            <label>Sort by breed </label>
+            <select onChange={e=> handleOrderByName(e)}>
             <option hidden value="default">Select order...</option>
-                <option value="asc">-A-</option>
-                <option value="desc">-Z-</option>
+                <option value='asc'>Asc...(A--Z)</option>
+                <option value='desc'>Desc...(Z--A)</option>
             </select>
         </div>
     )
