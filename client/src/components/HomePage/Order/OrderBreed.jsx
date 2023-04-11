@@ -1,5 +1,5 @@
 import React from "react";
-import {orderByName} from "../../../actions";
+import {orderByName} from "../../../redux/actions";
 
 export function OrderBreed({setCurrentPage, setOrder, dispatch}){
     
@@ -13,7 +13,7 @@ export function OrderBreed({setCurrentPage, setOrder, dispatch}){
 
     return(
         <div>
-            <label>Sort by breed </label>
+            <label>Sort by breed </label><br/>
             <select onChange={e=> handleOrderByName(e)}>
             <option hidden value="default">Select order...</option>
                 <option value='asc'>Asc...(A--Z)</option>

@@ -1,5 +1,5 @@
 import React from "react";
-import { orderByWeight } from "../../../actions";
+import { orderByWeight } from "../../../redux/actions";
 
 export function OrderWeight({setCurrentPage, setOrder, dispatch}){
 
@@ -12,7 +12,7 @@ export function OrderWeight({setCurrentPage, setOrder, dispatch}){
 
     return(
         <div>
-            <label>Sort by weight</label>
+            <label>Sort by weight</label><br/>
             <select onChange={handleOrderByWeight}>
             <option hidden value="default">Select order...</option>
                 <option value="asc">Weight asc...</option>

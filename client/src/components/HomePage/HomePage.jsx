@@ -1,16 +1,15 @@
 import React from "react";
 import {useState, useEffect}from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getDogs} from "../../actions";
+import {getDogs} from "../../redux/actions";
 import {Link} from "react-router-dom";
 import { FilterTemperament } from "./Filters/FilterTemperament";
 import { FilterOrigen } from "./Filters/FilterOrigen";
 import Card from "../Card/Card.jsx";
 import { OrderBreed } from "./Order/OrderBreed";
 import { OrderWeight } from "./Order/OrderWeight";
-import logo from "../LandingPage/title.png";
 import Paginated from "../Paginated/Paginated.jsx";
-import SearchBar from "../SearchBar";
+import SearchBar from "../SearchBar/SearchBar.jsx";
 import "./HomePage.css";
 
 export default function HomePage(){
@@ -41,7 +40,7 @@ export default function HomePage(){
         <div > 
             <header className="header">
                 <div className="head"> 
-                    <img src={logo} alt="logo" />
+                    <h1>DogsLand♡</h1>
                      <br/>
                      <Link to= "/dog">
                         <button>Create breed</button>
@@ -69,7 +68,12 @@ export default function HomePage(){
                     return(
                         <fragment>
                          <Link to={`/detail/${dog.id}`}>
-                            <Card image={dog.image} name={dog.name} temperament={dog.temperament} weight_min={dog.weight_min} weight_max={dog.weight_max}/>
+                            <Card 
+                            image={dog.image} 
+                            name={dog.name} 
+                            temperament={dog.createdInDb? dog.temperaments?.map(el=>el.name+(" - ")): dog.temperament} 
+                            weight_min={dog.weight_min} 
+                            weight_max={dog.weight_max}/>
                          </Link>
                         </fragment>
                     );

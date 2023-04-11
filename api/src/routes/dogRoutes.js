@@ -39,25 +39,27 @@ router.get("/:id", async (req, res)=> {
 });
 
 router.post("/", async (req, res)=>{
-    const { image, name, height, weight_min, weight_max, life_span, createdInDb, temperament} = req.body;
+    const { image, name, height_min, height_max, weight_min, weight_max, life_span, createdInDb, temperament} = req.body;
     console.log(req.body);
     
     try{
         const newDog= await Dog.create({
             image,
             name,
-            height,
+            height_min,
+            height_max,
             weight_min,
             weight_max,
             life_span,
             createdInDb,
         });
-       
+        
         const createTemperament= await Temperament.findAll({
             where:{
-                name: temperament
+                name: temperament.map(el=>el)
             }
         })
+    
         newDog.addTemperament(createTemperament);
         res.status(200).send("Raza de perro creada con exito");
     }catch(error){

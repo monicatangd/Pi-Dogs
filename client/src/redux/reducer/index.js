@@ -3,7 +3,6 @@ const initialState={
     detatil: [],
     temperament: [],
     allDogs: [],
-
 }
 
 function rootReducer(state= initialState, action){
