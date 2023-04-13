@@ -3,16 +3,22 @@ import {useEffect}from "react";
 import {useDispatch, useSelector} from "react-redux";
 import { filterTemperaments, getTemperaments} from "../../../redux/actions";
 
-export function FilterTemperament(){
+export function FilterTemperament({setCurrentPage}){
     const dispatch= useDispatch();
+    const allDogs=useSelector ((state=> state.dogs))
     const allTemperaments = useSelector(state => state.temperament);
 
     useEffect(()=>{
         dispatch(getTemperaments())
     }, [dispatch])
 
+   
+
     function handlerFilter(e){
+        
         dispatch(filterTemperaments(e.target.value));
+        setCurrentPage(1);
+        
     }
     return(
         <div>

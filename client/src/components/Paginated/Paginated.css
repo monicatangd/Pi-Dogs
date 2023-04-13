@@ -7,7 +7,7 @@
     display: inline-block;
     margin-right: 2px;
 }
-.number a{
+.pagination button{
     display: block;
    color: #ff7c39;
    padding: 10px;
@@ -15,7 +15,11 @@
    text-decoration: none;
    cursor: pointer;
    border-radius: 3px;
+   border: 1px solid rgb(27, 24, 24);
 }
-.number a:hover{
+.number button:hover{
+    background-color: rgb(59, 59, 59);
+}
+.number button:focus{
     background-color: rgb(59, 59, 59);
 }

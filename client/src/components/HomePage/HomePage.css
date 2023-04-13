@@ -8,7 +8,9 @@
    color:#ff7c39;
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
    margin-right: auto;
+   
 }
+
 .head{
     display: flex;
     justify-content: flex-end;
@@ -54,7 +56,8 @@
     padding: 10px;
     display: flex;
     flex-flow: wrap;
-    justify-content: center;
+    justify-content: space-around;
+    background: rgba(255, 124, 57, 0.801);
 }
 .filters button{
     background-color: rgb(27, 24, 24);

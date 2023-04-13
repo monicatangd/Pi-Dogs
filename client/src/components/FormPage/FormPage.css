@@ -1,10 +1,11 @@
 .cont{
     background-color: rgb(27, 24, 24);
     width: 500px;
-    height: 500px;
+    height: auto;
     margin-top: 60px;
     border-radius: 10px;
     display: inline-block;
+    margin-bottom: 60px;
 }
 
 .cont label{
@@ -26,6 +27,9 @@
     border-radius: 5px;
     padding: 6px;
     margin-top: 10px;
+}
+.btn{
+    margin-bottom: 30px;
 }
 
 .cont button:hover{

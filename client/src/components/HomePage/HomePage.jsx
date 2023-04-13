@@ -42,10 +42,13 @@ export default function HomePage(){
                 <div className="head"> 
                     <h1>DogsLand♡</h1>
                      <br/>
+                     <Link to= "/">
+                        <button>Main</button>
+                     </Link>
                      <Link to= "/dog">
                         <button>Create breed</button>
                      </Link>
-                    <SearchBar/>
+                    <SearchBar setCurrentPage={setCurrentPage}/>
                  </div>
             </header>
             <div className="homePage">
@@ -53,7 +56,7 @@ export default function HomePage(){
                 <button onClick={e=> {handleClick(e)}}> 
                     Reload
                 </button>
-                <FilterTemperament />
+                <FilterTemperament setCurrentPage={setCurrentPage} />
                 <FilterOrigen dispatch={dispatch}/>
                 <OrderBreed setCurrentPage={setCurrentPage} setOrder={setOrder} dispatch={dispatch}/>
                 <OrderWeight setCurrentPage={setCurrentPage} setOrder={setOrder} dispatch={dispatch}/>
@@ -69,11 +72,14 @@ export default function HomePage(){
                         <fragment>
                          <Link to={`/detail/${dog.id}`}>
                             <Card 
+                            id={dog.id}
                             image={dog.image} 
                             name={dog.name} 
                             temperament={dog.createdInDb? dog.temperaments?.map(el=>el.name+(" - ")): dog.temperament} 
                             weight_min={dog.weight_min} 
-                            weight_max={dog.weight_max}/>
+                            weight_max={dog.weight_max}
+                            createdInDb={dog.createdInDb}
+                            dispatch={dispatch}/>
                          </Link>
                         </fragment>
                     );

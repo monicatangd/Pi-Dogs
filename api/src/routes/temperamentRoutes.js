@@ -21,8 +21,7 @@ router.get("/", async (req, res)=>{
             })
         }
     });
-    
-    
+
     arr.forEach(element=>{ //se agrega cada item como nombre en la base de datos
         Temperament.findOrCreate({
             where:{ name: element}

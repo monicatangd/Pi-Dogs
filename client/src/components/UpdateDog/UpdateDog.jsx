@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from "react";
-import {Link, useHistory} from "react-router-dom";
-import {postDogs, getTemperaments} from "../../redux/actions";
-import {useDispatch, useSelector} from "react-redux";
-import "./FormPage.css";
+import React, {useState} from "react";
+import {Link, useHistory, useParams} from "react-router-dom";
+import {updateDog} from "../../redux/actions";
+import {useDispatch} from "react-redux";
+import "../FormPage/FormPage.css";
 
 
 function validate(input){
@@ -40,9 +40,9 @@ function validate(input){
 }
 
 export default function FormPage (){
+    const {id}=useParams();
     const dispatch = useDispatch();
     const history = useHistory();
-    const temperaments = useSelector((state)=> state.temperament);
     const [errors, setErrors] = useState({});
     const [input, setInput] = useState({
         image: "",
@@ -51,13 +51,9 @@ export default function FormPage (){
         height_max: "",
         weight_min: "",
         weight_max: "",
-        life_span: "",
-        temperament: []
+        life_span: ""
     })
-
-    useEffect(()=>{
-        dispatch(getTemperaments())
-    }, [])
+    
 
 
     function handleChange(e){
@@ -73,18 +69,11 @@ export default function FormPage (){
     }
     
 
-    function handleSelect(e){
-        setInput({
-            ...input,
-            temperament: [...input.temperament, e.target.value]
-        })
-    }
-
+   
     function handleSubmit(e){
         e.preventDefault();
-        console.log(input);
-        dispatch(postDogs(input));
-        alert("Breed successfully created");
+        dispatch(updateDog(input, id));
+        alert("Update completed!");
         setInput({
             image: "",
             name: "",
@@ -93,20 +82,14 @@ export default function FormPage (){
             weight_min: "",
             weight_max: "",
             life_span: "",
-            temperament: []
         })
         history.push("/home")
     }
-    function handleDelete(el){
-        setInput({
-            ...input,
-            temperament: input.temperament.filter(element=>element !== el)
-        })
-    }
+    
 
     return(
         <div className="cont">
-            <Link to="/home"><button>Back</button></Link>
+            <Link to={"/detail/"+id}><button>Back</button></Link>
             <h1>Create breed</h1>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -140,23 +123,12 @@ export default function FormPage (){
                     <input type="text" placeholder="Enter life span..." value={input.life_span} className="input" name="life_span" onChange={handleChange}/>
                     {errors.life_span &&(<p className="error">{errors.life_span}</p>)}
                 </div>
-                <label>Temperamet: </label>  
-                <select onChange={handleSelect}>
-                    {temperaments.map((temp)=>(
-                        <option valut={temp.name}>{temp.name}</option>
-                    ))}
-                </select>
                 <br/>
-                <button  type="submit" className="btn" disabled>Create Breed</button>
+                <button  type="submit" className="btn" disabled>Update</button>
                 
             </form>
             
-            {input.temperament.map(el=>
-                <div >
-                    <h5>{el}</h5>
-                    <button  onClick={()=> handleDelete(el)}>X</button>
-                </div>
-                )}
+           
                 
         </div>
     )

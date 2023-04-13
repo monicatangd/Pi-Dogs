@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getNameDogs } from "../../redux/actions";
 
-export default function SearchBar(){
+export default function SearchBar({setCurrentPage}){
     const dispatch =useDispatch();
     const [name, setName]= useState("");
 
@@ -15,11 +15,13 @@ export default function SearchBar(){
     function handleSubmit(e){
         e.preventDefault();
         dispatch(getNameDogs(name));
-        document.getElementById("search").value="";
+        setCurrentPage(1);
+        document.querySelector(".search").value="";
+
     }
     return(
         <div>
-            <input type="text" id="search" placeholder="Enter name..." onChange={(e)=> handleInputChange(e)}/>
+            <input type="text" className="search" placeholder="Enter name..." onChange={(e)=> handleInputChange(e)}/>
             <button type="submit" onClick={(e)=> handleSubmit(e)}>Search</button>
         </div>
        

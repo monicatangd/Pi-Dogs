@@ -13,8 +13,8 @@ const getDogsApi = async()=>{
             name: element.name,
             height_min: element.height.metric.split(" - ")[0],
             height_max: element.height.metric.split(" - ")[1],
-            weight_min: element.weight.metric.split(" - ")[0],
-            weight_max: element.weight.metric.split(" - ")[1],
+            weight_min: element.weight.imperial.split(" - ")[0],
+            weight_max: element.weight.imperial.split(" - ")[1],
             life_span: element.life_span,
             temperament: element.temperament,
         }
@@ -45,8 +45,22 @@ const getAll = async()=>{
     return getAllDogs;
 }
 
+const deleteDog= async(id)=>{
+    await Dog.destroy({
+        where:{id}
+    });
+}
+
+const updateDog= async(info, id)=>{
+    await Dog.update(info, {
+        where:{id}
+    });
+}
+
 module.exports={
     getDogsApi,
     getDogsDb,
     getAll,
+    deleteDog,
+    updateDog,
 }

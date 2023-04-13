@@ -83,3 +83,26 @@ export function detailDog(id){
     
 
 }
+export function deleteDog(id){
+    return async function(dispatch){
+         await axios.delete("http://localhost:3001/dogs/"+id);
+        return dispatch({
+            type: "DELETE_DOG"
+        })
+    }
+}
+
+export function updateDog(payload, id){
+    
+    return async function(dispatch){
+        try{
+       await axios.put("http://localhost:3001/dogs/"+id, payload);
+        return dispatch({
+            type: "UPDATE_DOG",
+            payload
+        })
+    }catch(error){
+    console.log(error)
+    }
+}
+}

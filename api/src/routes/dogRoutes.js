@@ -1,5 +1,5 @@
 const {Router} = require("express");
-const {getAll} = require("../Controllers/Controllers.js");
+const {getAll, deleteDog, updateDog} = require("../Controllers/Controllers.js");
 const {Dog, Temperament} = require("../db.js");
 
 const router = Router();
@@ -40,8 +40,7 @@ router.get("/:id", async (req, res)=> {
 
 router.post("/", async (req, res)=>{
     const { image, name, height_min, height_max, weight_min, weight_max, life_span, createdInDb, temperament} = req.body;
-    console.log(req.body);
-    
+    console.log(req.body)
     try{
         const newDog= await Dog.create({
             image,
@@ -59,11 +58,33 @@ router.post("/", async (req, res)=>{
                 name: temperament.map(el=>el)
             }
         })
-    
+        
         newDog.addTemperament(createTemperament);
         res.status(200).send("Raza de perro creada con exito");
     }catch(error){
         res.status(404).send(error.message);
+    }
+})
+
+router.delete("/:id", async (req, res)=>{
+    try{
+        const {id} = req.params;
+        const response=await deleteDog(id);
+        res.status(200).json(response);
+    }catch(error){
+        res.status(404).json(error);
+    }
+})
+
+router.put("/:id", async (req, res)=>{
+    try{
+        const {id}=req.params;
+        const {image, name, height_min, height_max, weight_min, weight_max, life_span} =req.body;
+       
+        const response= await updateDog(req.body, id);
+        res.status(200).json(response);
+    }catch(error){
+        res.status(404).json(error);
     }
 })
 

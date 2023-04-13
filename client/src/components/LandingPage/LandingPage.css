@@ -1,14 +1,14 @@
 
 .landingPage img{
-  width: 80%;
+  width: 60%;
   border-end-end-radius: 50px;
   border-end-start-radius: 50px;
 }
 
 
 .title img{
-  width: 250px;
-  height: 200px;
+  width: 25%;
+  height: 15%;
  
 }
 .title button{
@@ -26,7 +26,8 @@
 }
 .paragraph p{
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color:#555252;
+  color:#ebe6e6;
+  margin-top: 20px;
   
 }
 .paragraph{

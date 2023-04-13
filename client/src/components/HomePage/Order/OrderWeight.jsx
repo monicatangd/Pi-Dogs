@@ -14,7 +14,7 @@ export function OrderWeight({setCurrentPage, setOrder, dispatch}){
         <div>
             <label>Sort by weight</label><br/>
             <select onChange={handleOrderByWeight}>
-            <option hidden value="default">Select order...</option>
+                <option hidden value="default">Select order...</option>
                 <option value="asc">Weight asc...</option>
                 <option value="desc">Weight desc...</option>
             </select>

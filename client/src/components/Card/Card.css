@@ -24,3 +24,15 @@
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
+.card button{
+    padding: 6px;
+    background-color: rgb(27, 24, 24);
+    color:#ff7c39;
+    border: 1px solid #ff7c39;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.card button:hover{
+    background-color: #ffa460;
+}
